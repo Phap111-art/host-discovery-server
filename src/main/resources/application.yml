@@ -1,0 +1,26 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: discovery-server
+  profiles:
+    active: docker-compose
+  cloud:
+    deployer:
+      composeFile: docker-compose.yml
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+
+
+# prometheus
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+
